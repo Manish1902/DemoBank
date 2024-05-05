@@ -16,7 +16,7 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text>Welcome to My bank App!</Text>
+            <Text style={styles.text}>Welcome to My bank App!</Text>
             <Text>Type of fund transfer</Text>
             <RNPickerSelect
                 onValueChange={(value) => setSelectedValue(value)}
@@ -29,7 +29,11 @@ const HomeScreen = ({ navigation }) => {
                 <Checkbox isSelected={isSelected} onPress={handleCheckboxToggle} />
                 <TermsAndConditions modalVisible={modalVisible} setModalVisible={setModalVisible} />
             </View>
-            <Button onPress={() => navigation.navigate("Amount")} title="Next" />
+            <Button
+                onPress={() => navigation.navigate("Amount")}
+                title="Next"
+                style={styles.button}
+            />
         </View>
     );
 }
@@ -40,7 +44,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    },
+    }, text: {
+        fontSize: 20,
+    }, button: {
+        marginTop: 20,
+    }
 });
 
 export default HomeScreen;
