@@ -12,7 +12,7 @@ const AmountDetails = ({ navigation }) => {
                 onAmountChange={setAmount}
             />
             <Button
-                onPress={() => navigation.navigate("Home")}
+                onPress={() => navigation.navigate("AllDetails")}
                 title="Next"
             />
         </View>
