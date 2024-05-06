@@ -10,7 +10,7 @@ const AllSelectedDetails = ({ navigation }) => {
         <Text>From Account: {fromAccount}</Text>
         <Text>To Account: {toAccount}</Text>
         <Text>Transfer Type: {selectedOption}</Text>
-        {/* <Text>Date: {selectedDate}</Text> */}
+        <Text>Date: {selectedDate.toDateString()}</Text>
         <Text>Amount to be transfered: {amount}</Text>
         <Button
             onPress={() => navigation.navigate("Decleration")}

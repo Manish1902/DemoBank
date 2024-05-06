@@ -12,7 +12,7 @@ const TermsAndConditions = ({ modalVisible, setModalVisible }) => (
       >
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
           <View style={{ backgroundColor: 'white', padding: 20, borderRadius: 10 }}>
-            <Text>This are terms and conditions.</Text>
+            <Text style={{color: 'blue'}}>This are terms and conditions.</Text>
             <Button title="Close" onPress={() => setModalVisible(false)} />
           </View>
         </View>
