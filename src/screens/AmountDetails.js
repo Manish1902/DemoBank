@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import Amount from '../components/Amount';
 import RadioButton from '../components/RadioButton';
 import DatePicker from '../components/DatePicker';
+import { DataContext } from '../context/dataContext';
 
 const AmountDetails = ({ navigation }) => {
-    const [amount, setAmount] = useState('');
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    // const [amount, setAmount] = useState('');
+    // const [selectedDate, setSelectedDate] = useState(new Date());
+    // const [selectedOption, setSelectedOption] = useState(null);
+    let { amount, setAmount, selectedDate, setSelectedDate, selectedOption, setSelectedOption } = useContext(DataContext)
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const options = ['Transfer after time', 'Immediate Transfer'];
 
     const handleSelect = (option) => {
         setSelectedOption(option);
-        if(option === 'Immediate Transfer') {
+        if (option === 'Immediate Transfer') {
             setSelectedDate(new Date());
         }
     };
-    
+
     const handleDateChange = (date) => {
         setSelectedDate(date);
         setDatePickerVisibility(false);
@@ -30,19 +32,19 @@ const AmountDetails = ({ navigation }) => {
     const hideDatePicker = () => {
         setDatePickerVisibility(false);
     };
-    
+
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Amount Details</Text>
             <RadioButton options={options} selectedOption={selectedOption} onSelect={handleSelect} />
-            {selectedOption === 'Transfer after time' && 
+            {selectedOption === 'Transfer after time' &&
                 <>
                     <Button title="Select Date" onPress={showDatePicker} />
-                    <DatePicker 
-                        isVisible={isDatePickerVisible} // Pass visibility state to DatePicker component
-                        selectedDate={selectedDate} 
-                        onDateChange={handleDateChange} 
-                        onClose={hideDatePicker} // Pass function to close date picker modal
+                    <DatePicker
+                        isVisible={isDatePickerVisible}
+                        selectedDate={selectedDate}
+                        onDateChange={handleDateChange}
+                        onClose={hideDatePicker}
                     />
                 </>
             }
