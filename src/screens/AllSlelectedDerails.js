@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { DataContext } from '../context/dataContext';
+import { GlobalStyles } from '../Styles/GlobalStyles';
 
 const AllSelectedDetails = ({ navigation }) => {
     let { fromAccount, toAccount, amount, selectedDate,selectedOption} = useContext(DataContext)
 
-    return <View style={styles.container}>
-        <Text style={styles.text}>All Details</Text>
+    return <View style={GlobalStyles.container}>
+        <Text style={GlobalStyles.text}>All Details</Text>
         <Text>From Account: {fromAccount}</Text>
         <Text>To Account: {toAccount}</Text>
         <Text>Transfer Type: {selectedOption}</Text>
@@ -18,16 +19,5 @@ const AllSelectedDetails = ({ navigation }) => {
         />
     </View>
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    text: {
-        fontSize: 20,    },
-});
 
 export default AllSelectedDetails

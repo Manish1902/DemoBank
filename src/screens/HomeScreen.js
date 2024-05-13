@@ -3,10 +3,10 @@ import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import Checkbox from '../components/CheckBox'
 import TermsAndConditions from '../components/T&C';
 import { DataContext } from '../context/dataContext';
+import { GlobalStyles } from '../Styles/GlobalStyles';
+import ValueInput from '../components/ValueInput';
 
 const HomeScreen = ({ navigation }) => {
-    // const [fromAccount, setFromAccount] = useState('');
-    // const [toAccount, setToAccount] = useState('');
     let {fromAccount, setFromAccount} = useContext(DataContext);
     let {toAccount, setToAccount} = useContext(DataContext);
     const [isSelected, setSelection] = useState(false);
@@ -39,23 +39,19 @@ const HomeScreen = ({ navigation }) => {
         }
     };
     return (
-        <View style={styles.container}>
+        <View style={GlobalStyles.container}>
             <Text style={styles.text}>Welcome to My bank App!</Text>
             <Text>From Account</Text>
-            <TextInput
-                style={styles.inputStyle}
+            <ValueInput
                 placeholder="From Account"
                 value={fromAccount}
-                onChangeText={handleFromAccountChange}
-                keyboardType="numeric"
+                onValueChange={handleFromAccountChange}
             />
             <Text>To Account</Text>
-            <TextInput
-                style={styles.inputStyle}
+            <ValueInput
                 placeholder="To Account"
                 value={toAccount}
-                onChangeText={handleToAccountChange}
-                keyboardType="numeric"
+                onValueChange={handleToAccountChange}
             />
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Checkbox isSelected={isSelected} onPress={handleCheckboxToggle} />
@@ -71,23 +67,9 @@ const HomeScreen = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     text: {
         fontSize: 20,
         marginBottom: 100,
-    },
-    inputStyle: {
-        height: 40,
-        width: '80%',
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginBottom: 10,
-        paddingHorizontal: 10,
     },
     button: {
         marginTop: 20,

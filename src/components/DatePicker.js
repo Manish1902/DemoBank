@@ -4,7 +4,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 const DatePicker = ({ selectedDate, isVisible, onDateChange, onClose }) => {
     return (
-        <View style={styles.container}>
+        <View>
             {isVisible && (
                 <DateTimePicker
                     style={styles.datePicker}
@@ -22,11 +22,6 @@ const DatePicker = ({ selectedDate, isVisible, onDateChange, onClose }) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     datePicker: {
         width: '100%',
         backgroundColor: '#fff',

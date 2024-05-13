@@ -1,14 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import Amount from '../components/Amount';
 import RadioButton from '../components/RadioButton';
 import DatePicker from '../components/DatePicker';
 import { DataContext } from '../context/dataContext';
+import { GlobalStyles } from '../Styles/GlobalStyles';
+import ValueInput from '../components/ValueInput';
 
 const AmountDetails = ({ navigation }) => {
-    // const [amount, setAmount] = useState('');
-    // const [selectedDate, setSelectedDate] = useState(new Date());
-    // const [selectedOption, setSelectedOption] = useState(null);
     let { amount, setAmount, selectedDate, setSelectedDate, selectedOption, setSelectedOption } = useContext(DataContext)
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const options = ['Transfer after time', 'Immediate Transfer'];
@@ -34,8 +32,8 @@ const AmountDetails = ({ navigation }) => {
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Amount Details</Text>
+        <View style={GlobalStyles.container}>
+            <Text style={GlobalStyles.text}>Amount Details</Text>
             <RadioButton options={options} selectedOption={selectedOption} onSelect={handleSelect} />
             {selectedOption === 'Transfer after time' &&
                 <>
@@ -49,9 +47,10 @@ const AmountDetails = ({ navigation }) => {
                 </>
             }
             <Text style={styles.selectedDateText}>Selected Date: {selectedDate.toDateString()}</Text>
-            <Amount
+            <ValueInput
                 amount={amount}
-                onAmountChange={setAmount}
+                onValueChange={setAmount}
+                placeholder="Rupee"
             />
             <Button
                 onPress={() => navigation.navigate("AllDetails")}
@@ -62,15 +61,6 @@ const AmountDetails = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    text: {
-        fontSize: 20,
-    },
     selectedDateText: {
         marginTop: 10,
     },
