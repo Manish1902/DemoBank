@@ -13,7 +13,10 @@ const Decleration = ({ navigation }) => {
     };
     const goingHome = () => {
         resetStates()
-        navigation.navigate("Home")
+        navigation.reset({
+            index: 0,
+            routes: [{ name: 'Home' }]
+        });
     }
 
     return <View style={GlobalStyles.container}>
