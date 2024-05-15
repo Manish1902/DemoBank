@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
+import { Button, StyleSheet, Text, View} from 'react-native';
 import Checkbox from '../components/CheckBox'
 import TermsAndConditions from '../components/T&C';
 import { DataContext } from '../context/dataContext';
@@ -41,14 +41,14 @@ const HomeScreen = ({ navigation }) => {
     return (
         <View style={GlobalStyles.container}>
             <Text style={styles.text}>Welcome to My bank App!</Text>
-            <Text>From Account</Text>
             <ValueInput
+                label="From Account"
                 placeholder="From Account"
                 value={fromAccount}
                 onValueChange={handleFromAccountChange}
             />
-            <Text>To Account</Text>
             <ValueInput
+                label="To Account"
                 placeholder="To Account"
                 value={toAccount}
                 onValueChange={handleToAccountChange}

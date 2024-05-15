@@ -48,6 +48,7 @@ const AmountDetails = ({ navigation }) => {
             }
             <Text style={styles.selectedDateText}>Selected Date: {selectedDate.toDateString()}</Text>
             <ValueInput
+                label="Enter Amount"
                 amount={amount}
                 onValueChange={setAmount}
                 placeholder="Rupee"
