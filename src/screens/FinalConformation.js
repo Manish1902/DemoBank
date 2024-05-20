@@ -3,16 +3,16 @@ import { Button, Text, View } from 'react-native';
 import { DataContext } from '../context/dataContext';
 import { GlobalStyles } from '../Styles/GlobalStyles';
 
-const AllSelectedDetails = ({ navigation }) => {
+const FinalConformation = ({ navigation }) => {
     let { fromAccount, toAccount, amount, selectedDate,selectedOption} = useContext(DataContext)
 
     return <View style={GlobalStyles.container}>
         <Text style={GlobalStyles.text}>All Details</Text>
-        <Text>From Account: {fromAccount}</Text>
-        <Text>To Account: {toAccount}</Text>
-        <Text>Transfer Type: {selectedOption}</Text>
-        <Text>Date: {selectedDate.toDateString()}</Text>
-        <Text>Amount to be transfered: {amount}</Text>
+        <Text style={GlobalStyles.text}>From Account: {fromAccount}</Text>
+        <Text style={GlobalStyles.text}>To Account: {toAccount}</Text>
+        <Text style={GlobalStyles.text}>Transfer Type: {selectedOption}</Text>
+        <Text style={GlobalStyles.text}>Date: {selectedDate.toDateString()}</Text>
+        <Text style={GlobalStyles.text}>Amount to be transfered: {amount}</Text>
         <Button
             onPress={() => navigation.navigate("Decleration")}
             title="Next"
@@ -20,4 +20,4 @@ const AllSelectedDetails = ({ navigation }) => {
     </View>
 }
 
-export default AllSelectedDetails
+export default FinalConformation

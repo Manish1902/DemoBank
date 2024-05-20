@@ -56,15 +56,15 @@ const AccountDetails = ({ navigation }) => {
                 value={toAccount}
                 onValueChange={handleToAccountChange}
             />
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={GlobalStyles.row}>
                 <Checkbox isSelected={isSelected} onPress={handleCheckboxToggle} />
                 <TermsAndConditions modalVisible={modalVisible} setModalVisible={setModalVisible} />
             </View>
-            <ErrorMessage message={error} />
+            {error ? <ErrorMessage message={error} /> : null}
             <Button
                 onPress={handleNextButtonPress}
                 title="Next"
-                style={styles.button}
+                style={GlobalStyles.button}
             />
         </View>
     );
@@ -73,6 +73,7 @@ const AccountDetails = ({ navigation }) => {
 const styles = StyleSheet.create({
     text: {
         fontSize: 20,
+        fontWeight: 'bold',
         marginBottom: 100,
     },
     button: {

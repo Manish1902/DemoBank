@@ -12,12 +12,13 @@ const TermsAndConditions = ({ modalVisible, setModalVisible }) => (
       >
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
           <View style={{ backgroundColor: 'white', padding: 20, borderRadius: 10 }}>
-            <Text style={{color: 'blue'}}>This are terms and conditions.</Text>
+            <Text style={{color: 'blue'}}>Terms and Conditions.</Text>
+            <Text style={{color: 'blue'}}>You have to fill all the details before heading to the next section.</Text>
             <Button title="Close" onPress={() => setModalVisible(false)} />
           </View>
         </View>
       </Modal>
-      <Text style={{ marginLeft: 8 }}>terms and conditions</Text>
+      <Text style={{ marginLeft: 8 }}>Terms and Conditions</Text>
     </TouchableOpacity>
   );
 

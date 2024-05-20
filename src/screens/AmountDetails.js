@@ -39,7 +39,7 @@ const AmountDetails = ({ navigation }) => {
         }
         else{
             setError('');
-            navigation.navigate("AllDetails");
+            navigation.navigate("Conformation");
         }
     }
     return (
@@ -64,10 +64,9 @@ const AmountDetails = ({ navigation }) => {
                 onValueChange={setAmount}
                 placeholder="Rupee"
             />
-            <ErrorMessage message={error} />
+            {error ? <ErrorMessage message={error} /> : null}
             <Button
                 onPress={handleNextButtonPress}
-                // onPress={() => navigation.navigate("AllDetails")}
                 title="Next"
             />
         </View>
