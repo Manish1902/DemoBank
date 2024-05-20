@@ -5,11 +5,13 @@ import DatePicker from '../components/DatePicker';
 import { DataContext } from '../context/dataContext';
 import { GlobalStyles } from '../Styles/GlobalStyles';
 import ValueInput from '../components/ValueInput';
+import ErrorMessage from '../components/ErrorMessage';
 
 const AmountDetails = ({ navigation }) => {
     let { amount, setAmount, selectedDate, setSelectedDate, selectedOption, setSelectedOption } = useContext(DataContext)
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const options = ['Transfer after time', 'Immediate Transfer'];
+    const [error,setError] = useState('')
 
     const handleSelect = (option) => {
         setSelectedOption(option);
@@ -31,6 +33,15 @@ const AmountDetails = ({ navigation }) => {
         setDatePickerVisibility(false);
     };
 
+    const handleNextButtonPress = () => {
+        if(amount===""){
+            setError('Please enter a amount')
+        }
+        else{
+            setError('');
+            navigation.navigate("AllDetails");
+        }
+    }
     return (
         <View style={GlobalStyles.container}>
             <Text style={GlobalStyles.text}>Amount Details</Text>
@@ -53,8 +64,10 @@ const AmountDetails = ({ navigation }) => {
                 onValueChange={setAmount}
                 placeholder="Rupee"
             />
+            <ErrorMessage message={error} />
             <Button
-                onPress={() => navigation.navigate("AllDetails")}
+                onPress={handleNextButtonPress}
+                // onPress={() => navigation.navigate("AllDetails")}
                 title="Next"
             />
         </View>

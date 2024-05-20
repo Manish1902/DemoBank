@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { BackHandler } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DataStore from './src/context/dataStore';
-import StackScreens from './Screens';
+import HomeScreen from './src/screens/HomeScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+import AccountStackNavigator from './AccountStackNavigator';
 
 const App = () => {
   useEffect(() => {
@@ -17,10 +20,17 @@ const App = () => {
 
     return () => backHandler.remove();
   }, []);
+
+  const Tab = createBottomTabNavigator();
+
   return (
     <DataStore>
       <NavigationContainer>
-        <StackScreens />
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="BankApp" component={AccountStackNavigator} options={{ title: 'Demo Bank App' }} />
+          <Tab.Screen name="Settings" component={SettingsScreen} />
+        </Tab.Navigator>
       </NavigationContainer>
     </DataStore>
   );

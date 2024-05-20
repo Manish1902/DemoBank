@@ -15,7 +15,7 @@ const Decleration = ({ navigation }) => {
         resetStates()
         navigation.reset({
             index: 0,
-            routes: [{ name: 'Home' }]
+            routes: [{ name: 'Accounts' }]
         });
     }
 
